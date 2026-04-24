@@ -31,6 +31,7 @@ Program/temp.md
 # ============================================================
 
 # VS Code
+.vscode/
 .vscode/settings.json
 .vscode/extensions.json
 .DS_Store
@@ -58,6 +59,7 @@ wheels/
 *.egg
 
 # Virtual environments
+FITE7415/
 venv/
 ENV/
 env/
@@ -82,6 +84,10 @@ Thumbs.db
 *.swp
 .cache/
 *.log
+
+# Local reference files
+Report Template.docx
+list.txt
 
 # ============================================================
 # IMPORTANT NOTICE
