@@ -72,6 +72,70 @@ Treat the run as successfully reproduced if the full-sample result is close to:
 
 Small differences can occur because of platform-side execution details, but the trade count, Sharpe level, and drawdown profile should remain close.
 
+## Quick Setup for Teammates (One-Click Local Testing)
+
+For team members who want to test the strategy locally with MCP environment:
+
+### Prerequisites
+- Python 3.10 or higher (if Python is not installed, download from python.org)
+- Git (for cloning the repository)
+
+### Setup Steps (Windows/Mac/Linux)
+
+**Step 1: Clone Repository**
+```bash
+git clone https://github.com/CharlieInTheFranxx/FITE7415-Project.git
+cd FITE7415-Project
+```
+
+**Step 2: Create Virtual Environment**
+
+*On Windows (PowerShell):*
+```powershell
+python -m venv FITE7415
+.\FITE7415\Scripts\Activate.ps1
+```
+
+*On Mac/Linux:*
+```bash
+python3 -m venv FITE7415
+source FITE7415/bin/activate
+```
+
+**Step 3: Install Dependencies**
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+**Step 4: Verify Installation**
+```bash
+python -c "import algogene_mcp_server; print('✓ MCP dependencies installed successfully')"
+```
+
+**Step 5: View Strategy Code**
+```bash
+cat Program/XAUUSD-ZEntry-Grid/code/xauusd_round26_zentry_m1_0_v1.py
+```
+
+### Running Tests Locally
+
+Once the MCP environment is set up, you can:
+1. Copy your personal ALGOGENE credentials into a local `config.py` (not tracked by git)
+2. Adapt the strategy script to use local MCP client
+3. Test any modifications before submitting to ALGOGENE platform
+
+### Troubleshooting
+
+**Issue**: Virtual environment creation fails
+- **Solution**: Check that Python 3.10+ is installed (`python --version`), and you have write permissions in the project directory
+
+**Issue**: pip install fails with package resolution errors
+- **Solution**: Update pip first with `pip install --upgrade pip`, then retry the installation
+
+**Issue**: "algogene_mcp_server not found" error
+- **Solution**: Ensure you are in the activated virtual environment (you should see `(FITE7415)` in your shell prompt)
+
 ## Repository Layout
 
 - `Program/BTCUSD/`: early BTCUSD research and reports
