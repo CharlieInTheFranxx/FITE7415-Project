@@ -105,7 +105,13 @@ source FITE7415/bin/activate
 
 **Step 3: Install Dependencies**
 
-This repo includes a **locally patched version** of `algogene_mcp_server` (with bug fixes not in the PyPI release). Install it directly from the repo:
+Choose **one** of the two options below depending on your need:
+
+---
+
+**Option A — Patched Version (Recommended for this project)**
+
+This repo includes a locally modified `algogene_mcp_server` with bug fixes that are not yet in the official PyPI release. Use this if you want to reproduce results exactly or contribute to the strategy:
 
 ```bash
 pip install --upgrade pip
@@ -113,7 +119,23 @@ pip install -e ./algogene_mcp_server   # local patched MCP package
 pip install -r requirements.txt        # remaining dependencies
 ```
 
-> **Why `-e ./algogene_mcp_server`?** The `algogene_mcp_server` folder in this repo is our modified version of the upstream package. Installing it in editable mode (`-e`) means your Python environment uses our patched code, not the version from PyPI.
+> `-e` (editable mode) means Python uses the files directly from the `algogene_mcp_server/` folder. After a `git pull`, any updates to MCP functions take effect immediately — no reinstall needed.
+
+---
+
+**Option B — Original PyPI Version**
+
+If you only want to explore the ALGOGENE API independently (not tied to this project's patches), you can install the official upstream package:
+
+```bash
+pip install --upgrade pip
+pip install algogene-mcp-server==0.1.8
+pip install -r requirements.txt
+```
+
+> Note: Some MCP calls may behave differently from the results documented in this repo, since our patched version fixes bugs present in 0.1.8.
+
+---
 
 **Step 4: Set ALGOGENE Credentials**
 
@@ -318,7 +340,7 @@ The recommended workflow for AI-assisted strategy modification:
 - **Solution**: Run `pip install --upgrade pip` first, then retry
 
 **Issue**: "algogene_mcp_server not found"
-- **Solution**: Ensure the virtual environment is activated — you should see `(FITE7415)` in your shell prompt. Then run `pip install -e ./algogene_mcp_server`
+- **Solution**: Ensure the virtual environment is activated — you should see `(FITE7415)` in your shell prompt. Then run `pip install -e ./algogene_mcp_server` (Option A) or `pip install algogene-mcp-server==0.1.8` (Option B)
 
 **Issue**: MCP server returns authentication error
 - **Solution**: Check that `ALGOGENE_USER` and `ALGOGENE_API_KEY` are correctly set in your `.env` file or system environment variables
