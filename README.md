@@ -55,10 +55,8 @@ FITE7415/
 ├── README.md                          # This file
 ├── Instruction.txt                    # Course assignment description
 ├── Report Template.md                 # Course report template
-├── user_account.txt                   # [PRIVATE] ALGOGENE account credentials
 ├── .github/
 │   └── skills/                        # Custom workflow skills
-├── .vscode/                           # VS Code settings
 ├── Program/
 │   ├── BTCUSD/                        # Strategy A (BTCUSD) - Rounds 1-12
 │   │   ├── code/                      # Strategy implementation scripts
@@ -78,14 +76,10 @@ FITE7415/
 │   ├── Overview.md                    # High-level project status and strategy map
 │   ├── current-mainline.md            # Active mainline strategy pointer
 │   ├── autoApproval.md                # Approved optimization windows
-│   ├── cmd.md                         # [INTERNAL] Command execution log
-│   ├── temp.md                        # [INTERNAL] Temporary notes
 │   ├── hard.md                        # Strategy design doc
-│   ├── Skills_overview.md             # Testing framework overview
-│   └── cmd.md, temp.md                # [NOT COMMITTED] Internal work files
+│   └── Skills_overview.md             # Testing framework overview
 │
 ├── .gitignore                         # Git exclusion rules
-└── .git-upload-rules                  # [NOT COMMITTED] Upload exclusion tracker
 ```
 
 ---
@@ -212,8 +206,8 @@ Profit Factor:           2.04
 
 1. **Python 3.8+** with standard scientific stack (pandas, numpy)
 2. **ALGOGENE Account** with API access
-   - Store credentials in `user_account.txt` (excluded from git)
-   - Format: See course documentation
+  - Configure your own local credentials outside version control
+  - Follow the platform and course documentation for account setup
 3. **API Token**: Obtained via `mcp_algogene_get_session()` before any backtest
 
 ### Running a Backtest
@@ -352,21 +346,11 @@ The final course report should reference:
 
 ## Important Notes
 
-### Private Files (Not Included in Git)
-
-The following files contain sensitive information and are **excluded** from all public repositories:
-- `user_account.txt`: ALGOGENE credentials
-- `Program/cmd.md`: Internal command log
-- `Program/temp.md`: Temporary notes
-- `.git-upload-rules`: Upload exclusion tracker (meta file)
-
-These are configured in `.gitignore` and must never be committed.
-
 ### Reproducibility
 
 To reproduce all results:
 1. Clone this repository
-2. Create `user_account.txt` with ALGOGENE credentials (not included)
+2. Configure your own ALGOGENE credentials locally
 3. Run strategy via ALGOGENE API or UI
 4. Compare against reported metrics
 
